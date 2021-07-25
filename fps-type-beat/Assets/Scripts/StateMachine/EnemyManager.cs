@@ -22,6 +22,9 @@ public class EnemyManager : CharacterManager {
   public float timerJumpInterval = 2f;
   public float fireRateInterval = 1f;
   public AudioSource gunAudio;
+  public GameObject bulletPrefab;
+  public Transform POV;
+  public Transform gunEnd;
 
   [Header ("Path State Following")]
   public Transform path; // idle patrolling path

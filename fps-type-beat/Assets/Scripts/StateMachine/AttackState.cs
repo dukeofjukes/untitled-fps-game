@@ -15,12 +15,20 @@ public class AttackState : State {
 
   public override State RunCurrentState() {
     SetRandomMovement();
-    Vector3 lookAtTarget = new Vector3(enemyManager.target.position.x,
+
+    // get the location of the target (not accounting for up/down look, since only the gun moves that direction)
+    Vector3 bodyLookAtTarget = new Vector3(enemyManager.target.position.x,
                                        enemyManager.transform.position.y, // lock y axis
                                        enemyManager.target.position.z);
-    enemyManager.transform.LookAt(lookAtTarget);
+    enemyManager.transform.LookAt(bodyLookAtTarget); // look towards the target
+
+    // get the y-axis position of the target:
+    Vector3 gunLookAtTarget = new Vector3(enemyManager.target.position.x,
+                                          enemyManager.target.position.y, // only get y axis
+                                          enemyManager.target.position.z);
+    enemyManager.POV.LookAt(gunLookAtTarget); // point gun up/down towards target
     
-    HandleShooting();
+    HandleShooting(enemyManager.POV.forward);
 
     // handle state switching:
     if (enemyManager.targetDistance > enemyManager.attackRadius) {
@@ -62,7 +70,7 @@ public class AttackState : State {
   /*
     Handles shooting timers, effects, and any associated logic in the event of a landed shot.
   */
-  private void HandleShooting() {
+  private void HandleShooting(Vector3 shootDir) {
     // so, enemy should already be facing the target player in the attack state.
     // that means, we should apply some kind of projectile shoot (not raycast), that takes time to reach the player
 
@@ -73,6 +81,8 @@ public class AttackState : State {
       fireTimer = enemyManager.fireRateInterval;
 
       StartCoroutine(ShotEffect());
+      GameObject bulletGameObject = Instantiate(enemyManager.bulletPrefab, enemyManager.gunEnd.position, enemyManager.gunEnd.rotation);
+      bulletGameObject.GetComponent<Bullet>().Setup(shootDir);
 
       // TODO: handle health damage if the shot lands
       // check collider or component or mask or something

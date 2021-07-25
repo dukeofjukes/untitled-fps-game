@@ -2305,7 +2305,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14190
+  m_Name: pb_Mesh14194
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3122,6 +3122,10 @@ MonoBehaviour:
   timerJumpInterval: 2
   fireRateInterval: 0.5
   gunAudio: {fileID: 0}
+  bulletPrefab: {fileID: 5628518954003753771, guid: ebff4db001c2e704fad16ec1ff2e3aca,
+    type: 3}
+  POV: {fileID: 1294160238}
+  gunEnd: {fileID: 139275690}
   path: {fileID: 1957387623}
   waypoints: []
   followPathWaitTime: 2
