@@ -78,14 +78,13 @@ public class AttackState : State {
     fireTimer -= Time.deltaTime;
     
     if (fireTimer <= 0) {
-      fireTimer = enemyManager.fireRateInterval;
+      fireTimer = enemyManager.fireRateInterval; // reset timer
 
-      StartCoroutine(ShotEffect());
+      StartCoroutine(ShotEffect()); // play sound effect
+
+      // create bullet:
       GameObject bulletGameObject = Instantiate(enemyManager.bulletPrefab, enemyManager.gunEnd.position, enemyManager.gunEnd.rotation);
       bulletGameObject.GetComponent<Bullet>().Setup(shootDir);
-
-      // TODO: handle health damage if the shot lands
-      // check collider or component or mask or something
     }
   }
 

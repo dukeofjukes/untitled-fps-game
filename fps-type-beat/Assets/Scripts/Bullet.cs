@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
   public float moveSpeed = 50f;
-  public float destroyBulletInterval = 7f;
+  public float destroyBulletInterval = 5f;
   private float destroyBulletTimer;
   private Vector3 shootDir;
 
@@ -27,5 +27,8 @@ public class Bullet : MonoBehaviour
     }
 
     transform.position += shootDir * moveSpeed * Time.deltaTime; // move bullet
+
+    // TODO: handle health damage if the shot lands
+    // check collider or component or mask or something
   }
 }

@@ -107,4 +107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
-  destroyBulletInterval: 10
+  destroyBulletInterval: 5
