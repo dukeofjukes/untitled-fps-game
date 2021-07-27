@@ -27,8 +27,18 @@ public class Bullet : MonoBehaviour
     }
 
     transform.position += shootDir * moveSpeed * Time.deltaTime; // move bullet
+  }
 
-    // TODO: handle health damage if the shot lands
-    // check collider or component or mask or something
+  /*
+    Function that runs when a game object with a rigid body component marked as a trigger enters
+    a collider.
+  */
+  private void OnTriggerEnter(Collider collider) {
+    // check that collider is the player:
+    PlayerHealth target = collider.GetComponentInParent<PlayerHealth>();
+    if (target != null) {
+      target.Damage();
+    }
+    Destroy(gameObject); // FIXME: might be a bug here, when the bullet "collides" with its spawn point, the gun barrel... 
   }
 }
