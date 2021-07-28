@@ -39,7 +39,7 @@ public class RaycastShoot : MonoBehaviour {
         laserLine.SetPosition(1, hit.point);
 
         // handle health damage to shootable objects:
-        EnemyHealth target = hit.collider.GetComponent<EnemyHealth>();
+        EnemyHealth target = hit.collider.GetComponentInParent<EnemyHealth>();
         if (target != null) {
           target.Damage(gunDamage);
         }
