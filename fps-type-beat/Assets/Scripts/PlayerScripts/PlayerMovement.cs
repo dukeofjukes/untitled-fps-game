@@ -6,6 +6,8 @@ using UnityEngine;
  * Intended for use with first person movement system. 
 */
 public class PlayerMovement : CharacterManager {
+  public HUDManager hudManager;
+
   void Update() {
     GetInputMovement();
     ApplyMovement(); // inherited from CharacterManager

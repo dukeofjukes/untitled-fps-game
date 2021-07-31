@@ -6,6 +6,8 @@ using UnityEngine;
 // depends on gun object references and such. especially when it comes to the shooting visual effect in 
 // the camera.
 public class RaycastShoot : MonoBehaviour {
+  public PlayerMovement playerObject;
+
   public int gunDamage = 5;
   public float fireRate = .25f;
   public float weaponRange = 50f;
@@ -41,11 +43,9 @@ public class RaycastShoot : MonoBehaviour {
         // handle health damage to shootable objects:
         EnemyHealth target = hit.collider.GetComponentInParent<EnemyHealth>();
         if (target != null) {
+          StartCoroutine(playerObject.hudManager.showHitmark());
           target.Damage(gunDamage);
         }
-        /*if (hit.rigidbody != null) {
-          hit.rigidbody.AddForce(-hit.normal * hitForce);
-        }*/
       } else {
         laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
       }

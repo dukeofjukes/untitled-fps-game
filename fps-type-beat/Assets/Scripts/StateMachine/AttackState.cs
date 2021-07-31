@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackState : State {
   public PatrolState patrolState;
-  public bool IS_SHOOTING; // DEBUG
 
   private float strafeTimer;
   private float jumpTimer;
@@ -30,12 +29,18 @@ public class AttackState : State {
     
     HandleShooting(enemyManager.POV.forward);
 
-    // handle state switching:
-    if (enemyManager.targetDistance > enemyManager.attackRadius) {
-      return patrolState; // switch states
-    } else {
-      return this; // remain in this state
+    if (!isShot) {
+      // handle state switching:
+      if (enemyManager.targetDistance > enemyManager.attackRadius) {
+        return patrolState; // switch states
+      }
     }
+    
+    return this;
+  }
+
+  public override void getShot() {
+    isShot = true;
   }
 
   /*
@@ -92,8 +97,6 @@ public class AttackState : State {
     enemyManager.gunAudio.Play();
 
     // FIXME: since we aren't doing raycast, find some solution to apply an orb or something (think like DOOM)
-    IS_SHOOTING = true;
     yield return shotDuration;
-    IS_SHOOTING = false;
   }
 }

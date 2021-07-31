@@ -9,7 +9,7 @@ public class PatrolState : State {
     //StartCoroutine(FollowPath(enemyManager.waypoints));
 
     // handle state switching:
-    if (CanSeePlayer()) {
+    if (CanSeePlayer() || isShot) {
       return attackState;
     } else {
       return this;
@@ -30,6 +30,10 @@ public class PatrolState : State {
       }
     }
     return false;
+  }
+
+  public override void getShot() {
+    isShot = true;
   }
 
   /*
