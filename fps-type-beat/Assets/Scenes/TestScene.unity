@@ -2223,7 +2223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitmark: {fileID: 500275060}
-  hitmarkVisibleDuration: 1
+  hitmarkVisibleDuration: 0.3
+  hitmarkFadeAwayDuration: 0.3
 --- !u!1 &1456607866
 GameObject:
   m_ObjectHideFlags: 0
