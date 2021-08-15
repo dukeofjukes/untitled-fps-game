@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-  public float moveSpeed = 50f;
+  public float moveSpeed = 80f;
   public float destroyBulletInterval = 5f;
   private float destroyBulletTimer;
   private Vector3 shootDir;

@@ -6,16 +6,25 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour {
   [Header ("HUD Object References")]
   public Image hitmark;
+  public HealthBar healthBar;
   public float hitmarkVisibleDuration = 0.3f;
   public float hitmarkFadeAwayDuration = 0.3f;
+  public bool hitmarkVisible = false;
+
+  public PlayerHealth playerHealth;
 
   private void Start() {
     hitmark.color = new Color(1, 1, 1, 0);
+    healthBar.setMaxHealth(playerHealth.maxHealth);
+  }
+
+  private void Update() {
+    healthBar.setHealth(playerHealth.health);
   }
 
   public IEnumerator showHitmark() {
     hitmark.color = new Color(1, 1, 1, 1);
-    //FIXME: figure out how to allow interruptions of the same coroutine, since i want the hitmark to persist on multiple shots
+    hitmarkVisible = true;
 
     yield return new WaitForSeconds(hitmarkVisibleDuration);
 
@@ -23,5 +32,6 @@ public class HUDManager : MonoBehaviour {
       hitmark.color = new Color(1, 1, 1, i);
       yield return null;
     }
+    hitmarkVisible = false;
   }
 }

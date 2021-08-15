@@ -43,7 +43,11 @@ public class RaycastShoot : MonoBehaviour {
         // handle health damage to shootable objects:
         EnemyHealth target = hit.collider.GetComponentInParent<EnemyHealth>();
         if (target != null) {
-          StartCoroutine(playerObject.hudManager.showHitmark());
+          // if the coroutine is currently running (hitmark is visible and fading), stop it:
+          if (playerObject.hudManager.hitmarkVisible) {
+            StopCoroutine(playerObject.hudManager.showHitmark());
+          }
+          StartCoroutine(playerObject.hudManager.showHitmark()); // then, start a new coroutine
           target.Damage(gunDamage);
         }
       } else {
