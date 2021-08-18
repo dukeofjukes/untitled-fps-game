@@ -39,7 +39,6 @@ public class PatrolState : State {
   /*
     Continuously follow idle patrol path defined in editor.
     FIXME: kinda broken
-  */
   IEnumerator FollowPath(Vector3[] waypoints) {
     enemyManager.transform.position = waypoints[0];
 
@@ -56,4 +55,5 @@ public class PatrolState : State {
       yield return null;
     }
   }
+  */
 }

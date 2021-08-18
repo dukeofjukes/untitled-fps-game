@@ -3,48 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : CharacterManager {
+  private AudioManager audioManager;
+
   [Header ("Enemy-specific Component References")]
   public State currentState; // holds starting state, displays current state during runtime
   public Transform target; // the player's transform
 
   [Header ("State Detection Triggers")]
-  private Vector3 targetHeading; // base value used to calculate distance and direction (see below)
-  public float targetDistance; // tracks the current distance from target
-  public Vector3 targetDirection; // points from this enemy towards the target
   public float viewRadius = 20f; // detection radius
   public float viewAngle = 70f; // detection field-of-view angle (in degrees)
   public float attackRadius = 50f; // distance player has to escape to end attack state
   public float stopPursuitRadius = 10f; // "personal space" distance around the player, enemy will stop pursuit at this radius
-  public LayerMask viewMask; // TODO: assign this in editor (Environment mask?)
+  [HideInInspector]
+  private Vector3 targetHeading; // base value used to calculate distance and direction (see below)
+  public float targetDistance; // tracks the current distance from target
+  public Vector3 targetDirection; // points from this enemy towards the target
+  public LayerMask viewMask;
 
   [Header ("Attack State Variables")]
   public float timerStrafeInterval = 1f;
   public float timerJumpInterval = 2f;
   public float fireRateInterval = 1f;
-  public AudioSource gunAudio;
   public GameObject bulletPrefab;
   public Transform POV;
   public Transform gunEnd;
 
-  [Header ("Path State Following")]
-  public Transform path; // idle patrolling path
-  public Vector3[] waypoints; // hold invididual waypoints. populated in Start() and utilized in IdleState
-  public float followPathWaitTime = .3f; // time to wait between path nodes (idle state)
-
-  void Start() {
-    gunAudio = GetComponent<AudioSource>();
-    // populate waypoints array with path waypoints:
-    waypoints = new Vector3[path.childCount];
-    for (int i = 0; i < waypoints.Length; i++) {
-      waypoints[i] = path.GetChild(i).position;
-      //waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
-    }
+  private void Start() {
+    audioManager = FindObjectOfType<AudioManager>();
   }
 
   /*
     Perform global actions and refresh variables that aren't dependent on a state.
   */
-  void Update() {
+  private void Update() {
     targetHeading = target.position - transform.position; // get a vector that points towards target
     targetDistance = targetHeading.magnitude; // refresh distance
     targetDirection = targetHeading / targetDistance; // refresh normalized direction
@@ -69,19 +60,5 @@ public class EnemyManager : CharacterManager {
   */
   private void SwitchToNextState(State nextState) {
     currentState = nextState;
-  }
-
-  void OnDrawGizmos() {
-    Vector3 startPosition = path.GetChild(0).position;
-    Vector3 previousPosition = startPosition;
-
-    foreach (Transform waypoint in path) {
-      Gizmos.color = Color.red;
-      Gizmos.DrawSphere(waypoint.position, 1);
-      Gizmos.color = Color.white;
-      Gizmos.DrawLine(previousPosition, waypoint.position);
-      previousPosition = waypoint.position;
-    }
-    Gizmos.DrawLine(previousPosition, startPosition);
   }
 }

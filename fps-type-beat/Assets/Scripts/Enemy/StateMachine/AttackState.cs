@@ -12,6 +12,12 @@ public class AttackState : State {
   private float fireTimer;
   private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
 
+  private AudioManager audioManager;
+
+  private void Start() {
+    audioManager = FindObjectOfType<AudioManager>();
+  }
+
   public override State RunCurrentState() {
     SetRandomMovement();
 
@@ -94,9 +100,8 @@ public class AttackState : State {
   }
 
   private IEnumerator ShotEffect() {
-    enemyManager.gunAudio.Play();
+    audioManager.Play("SFX_Enemy_Shoot");
 
-    // FIXME: since we aren't doing raycast, find some solution to apply an orb or something (think like DOOM)
     yield return shotDuration;
   }
 }

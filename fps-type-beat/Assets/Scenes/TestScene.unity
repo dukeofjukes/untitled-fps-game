@@ -2279,6 +2279,30 @@ MonoBehaviour:
     playOnAwake: 0
     spatialBlend: 1
     source: {fileID: 0}
+  - name: SFX_Enemy_Shoot
+    clip: {fileID: 8300000, guid: e55de879e201ca448993a73682eab34d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: SFX_Enemy_Death
+    clip: {fileID: 8300000, guid: 89827f032d3733640969e1732b967c1a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: SFX_Enemy_Damage
+    clip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    spatialBlend: 1
+    source: {fileID: 0}
 --- !u!4 &1185247733
 Transform:
   m_ObjectHideFlags: 0
@@ -2529,6 +2553,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1307289225}
+    - target: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
+        type: 3}
+      propertyPath: viewMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 7129953769674406671, guid: 5656dd9a824a80d4589f6e0acc188b62,
         type: 3}
       propertyPath: enemyManager

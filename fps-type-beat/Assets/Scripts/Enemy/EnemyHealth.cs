@@ -6,10 +6,10 @@ public class EnemyHealth : MonoBehaviour {
   public int maxHealth = 100;
   public int health;
   public EnemyManager enemyManager;
-  //private AudioSource deathAudio;
+  private AudioManager audioManager;
 
   void Start() {
-    //deathAudio = GetComponent<AudioSource>();
+    audioManager = FindObjectOfType<AudioManager>();
     health = maxHealth; // may need to change this depending on how level-loading system works, we'll want to remember the health across levels
     enemyManager = gameObject.GetComponent<EnemyManager>();
   }
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     if (health <= 0) {
-      //deathAudio.Play();
+      audioManager.Play("SFX_Enemy_Death");
       Destroy(gameObject);
     }
   }
