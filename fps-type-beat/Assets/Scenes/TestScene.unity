@@ -1817,73 +1817,9 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 822448732}
   m_IsSelectable: 1
-  m_SelectedFaces: 120000000b0000001600000019000000170000000a0000000800000013000000
-  m_SelectedEdges:
-  - a: 72
-    b: 73
-  - a: 73
-    b: 74
-  - a: 75
-    b: 72
-  - a: 74
-    b: 75
-  - a: 44
-    b: 45
-  - a: 45
-    b: 46
-  - a: 47
-    b: 44
-  - a: 46
-    b: 47
-  - a: 88
-    b: 89
-  - a: 89
-    b: 90
-  - a: 91
-    b: 88
-  - a: 90
-    b: 91
-  - a: 103
-    b: 100
-  - a: 100
-    b: 101
-  - a: 102
-    b: 103
-  - a: 101
-    b: 102
-  - a: 95
-    b: 92
-  - a: 92
-    b: 93
-  - a: 94
-    b: 95
-  - a: 93
-    b: 94
-  - a: 40
-    b: 41
-  - a: 41
-    b: 42
-  - a: 43
-    b: 40
-  - a: 42
-    b: 43
-  - a: 32
-    b: 33
-  - a: 33
-    b: 34
-  - a: 35
-    b: 32
-  - a: 34
-    b: 35
-  - a: 79
-    b: 76
-  - a: 76
-    b: 77
-  - a: 78
-    b: 79
-  - a: 77
-    b: 78
-  m_SelectedVertices: 48000000490000004a0000004b0000002c0000002d0000002e0000002f00000058000000590000005a0000005b000000670000006400000065000000660000005f0000005c0000005d0000005e00000028000000290000002a0000002b000000200000002100000022000000230000004f0000004c0000004d0000004e000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!1001 &417657758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1891,20 +1827,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 343457817, guid: 9d1836ee5946f264c99bfa9d6aa29052, type: 3}
-      propertyPath: hitAudio
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5462590487611653650, guid: 9d1836ee5946f264c99bfa9d6aa29052,
-        type: 3}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 1560434360}
-    - target: {fileID: 5462590487611653679, guid: 9d1836ee5946f264c99bfa9d6aa29052,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e55de879e201ca448993a73682eab34d, type: 3}
     - target: {fileID: 5462590487694393620, guid: 9d1836ee5946f264c99bfa9d6aa29052,
         type: 3}
       propertyPath: hudManager
@@ -2219,7 +2141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141189386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.109753, y: 1.6324983, z: -13.329571}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2303,6 +2225,14 @@ MonoBehaviour:
     playOnAwake: 0
     spatialBlend: 1
     source: {fileID: 0}
+  - name: SFX_Hitmark
+    clip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    spatialBlend: 1
+    source: {fileID: 0}
 --- !u!4 &1185247733
 Transform:
   m_ObjectHideFlags: 0
@@ -2317,12 +2247,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1307289225 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5462590487694393622, guid: 9d1836ee5946f264c99bfa9d6aa29052,
-    type: 3}
-  m_PrefabInstance: {fileID: 417657758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1419513069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1419513069, guid: 3c3a2334fabc888418ce9dba5cd9adae,
@@ -2365,18 +2289,6 @@ Transform:
   m_Father: {fileID: 1957387623}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1560434360 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5462590487694393620, guid: 9d1836ee5946f264c99bfa9d6aa29052,
-    type: 3}
-  m_PrefabInstance: {fileID: 417657758}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca20ed1b267a89f4195c1e49c19c7bd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1805118171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,18 +2366,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2060868025 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
-    type: 3}
-  m_PrefabInstance: {fileID: 956091453515049973}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05536adf43152d64da150978128b6713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &956091453515049973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2533,36 +2433,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7129953769674406668, guid: 5656dd9a824a80d4589f6e0acc188b62,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e55de879e201ca448993a73682eab34d, type: 3}
-    - target: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
-        type: 3}
-      propertyPath: path
-      value: 
-      objectReference: {fileID: 1957387623}
-    - target: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
-        type: 3}
-      propertyPath: speed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1307289225}
-    - target: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
-        type: 3}
-      propertyPath: viewMask.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7129953769674406671, guid: 5656dd9a824a80d4589f6e0acc188b62,
-        type: 3}
-      propertyPath: enemyManager
-      value: 
-      objectReference: {fileID: 2060868025}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5656dd9a824a80d4589f6e0acc188b62, type: 3}
 --- !u!1001 &7238580294727109659
