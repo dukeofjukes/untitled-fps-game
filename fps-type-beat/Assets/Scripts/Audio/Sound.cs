@@ -14,6 +14,10 @@ public class Sound {
   public float pitch = 1f;
 
   public bool loop;
+  public bool playOnAwake;
+
+  [Range(0f, 1f)]
+  public float spatialBlend = 1f;
 
   [HideInInspector]
   public AudioSource source;

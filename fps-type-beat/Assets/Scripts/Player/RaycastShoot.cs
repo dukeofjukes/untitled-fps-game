@@ -16,12 +16,15 @@ public class RaycastShoot : MonoBehaviour {
 
   private Camera fpsCam;
   private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
-  private AudioSource gunAudio;
+  //private AudioSource gunAudio;
+  private AudioManager audioManager;
+  
   private LineRenderer laserLine;
   private float nextFire;
 
   void Start() {
-    gunAudio = GetComponent<AudioSource>();
+    //gunAudio = GetComponent<AudioSource>();
+    audioManager = FindObjectOfType<AudioManager>();
     laserLine = GetComponent<LineRenderer>();
     fpsCam = GetComponentInParent<Camera>();
   }
@@ -57,7 +60,7 @@ public class RaycastShoot : MonoBehaviour {
   }
 
   private IEnumerator ShotEffect() {
-    gunAudio.Play();
+    audioManager.Play("SFX_Player_Shoot");
 
     laserLine.enabled = true;
     yield return shotDuration;

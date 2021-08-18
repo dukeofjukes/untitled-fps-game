@@ -1894,7 +1894,7 @@ PrefabInstance:
     - target: {fileID: 343457817, guid: 9d1836ee5946f264c99bfa9d6aa29052, type: 3}
       propertyPath: hitAudio
       value: 
-      objectReference: {fileID: 1714134070}
+      objectReference: {fileID: 0}
     - target: {fileID: 5462590487611653650, guid: 9d1836ee5946f264c99bfa9d6aa29052,
         type: 3}
       propertyPath: playerObject
@@ -2255,11 +2255,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: PlayerDeath
+  - name: SFX_Player_Death
     clip: {fileID: 8300000, guid: 3f605865d628dc34b9eb2634b6968752, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SFX_Player_Damage
+    clip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SFX_Player_Shoot
+    clip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
 --- !u!4 &1185247733
 Transform:
@@ -2329,114 +2344,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 417657758}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714134068}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca20ed1b267a89f4195c1e49c19c7bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1714134068 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5462590487694393623, guid: 9d1836ee5946f264c99bfa9d6aa29052,
-    type: 3}
-  m_PrefabInstance: {fileID: 417657758}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1714134070
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714134068}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1805118171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,7 +2387,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 417657758}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714134068}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab65aa68008e2a74f8354accb01e606a, type: 3}

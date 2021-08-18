@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
   */
   private void Awake() {
     // ensure singleton object:
-    if (instance == null) {
+    if (!instance) {
       instance = this;
     } else {
       Destroy(gameObject);
@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
       s.source.volume = s.volume;
       s.source.pitch = s.pitch;
       s.source.loop = s.loop;
+      s.source.playOnAwake = s.playOnAwake;
+      s.source.spatialBlend = s.spatialBlend;
     }
   }
 
