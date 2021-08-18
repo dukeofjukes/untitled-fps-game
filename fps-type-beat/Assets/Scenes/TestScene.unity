@@ -2261,6 +2261,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     playOnAwake: 0
+    spatialBlend: 1
     source: {fileID: 0}
   - name: SFX_Player_Damage
     clip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
@@ -2268,13 +2269,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     playOnAwake: 0
+    spatialBlend: 1
     source: {fileID: 0}
   - name: SFX_Player_Shoot
-    clip: {fileID: 8300000, guid: 678a703909bb84849af74940c6d83db2, type: 3}
+    clip: {fileID: 8300000, guid: e55de879e201ca448993a73682eab34d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
+    spatialBlend: 1
     source: {fileID: 0}
 --- !u!4 &1185247733
 Transform:
