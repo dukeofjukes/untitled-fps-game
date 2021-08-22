@@ -100,7 +100,7 @@ public class AttackState : State {
   }
 
   private IEnumerator ShotEffect() {
-    audioManager.Play("SFX_Enemy_Shoot");
+    audioManager.PlayAtPoint("SFX_Enemy_Shoot", transform.position);
 
     yield return shotDuration;
   }

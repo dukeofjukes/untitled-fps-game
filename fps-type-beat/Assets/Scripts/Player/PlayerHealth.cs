@@ -14,10 +14,10 @@ public class PlayerHealth : MonoBehaviour {
   
   public void Damage(int damageAmount = 5) {
     health -= damageAmount;
-    audioManager.Play("SFX_Player_Damage");
+    audioManager.PlayAtPoint("SFX_Player_Damage", transform.position);
 
     if (health <= 0) {
-      audioManager.Play("SFX_Player_Death");
+      audioManager.PlayAtPoint("SFX_Player_Death", transform.position);
       // TODO: change game state to game over screen or whatever
     }
   }

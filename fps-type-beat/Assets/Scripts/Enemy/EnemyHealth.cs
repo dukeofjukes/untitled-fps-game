@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     if (health <= 0) {
-      audioManager.Play("SFX_Enemy_Death");
+      audioManager.PlayAtPoint("SFX_Enemy_Death", transform.position);
       Destroy(gameObject);
     }
   }

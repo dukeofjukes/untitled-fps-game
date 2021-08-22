@@ -37,6 +37,7 @@ public class AudioManager : MonoBehaviour
   /*
     Plays the AudioSource of a sound object, while handling nullref exception.
   */
+  /*
   public void Play(string name) {
     Sound s = Array.Find(sounds, sound => sound.name == name);
 
@@ -46,5 +47,27 @@ public class AudioManager : MonoBehaviour
     }
 
     s.source.Play();
+  }
+  */
+
+  /*
+    Plays the AudioSource of a sound object at the specified position 
+  */
+  public AudioSource PlayAtPoint(string name, Vector3 position) {
+    Sound s = Array.Find(sounds, sound => sound.name == name);
+
+    if (s == null) {
+      Debug.LogWarning("Sound: " + name + "not found! (possible typo).");
+      return null;
+    }
+
+    // FIXME: still not working
+    GameObject tempGO = new GameObject("TempAudio");
+    tempGO.transform.position = position;
+    AudioSource aSource = tempGO.AddComponent<AudioSource>();
+    aSource = s.source;
+    aSource.Play();
+    Destroy(tempGO, s.clip.length);
+    return aSource;
   }
 }

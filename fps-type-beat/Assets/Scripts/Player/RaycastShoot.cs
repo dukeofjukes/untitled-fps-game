@@ -60,7 +60,7 @@ public class RaycastShoot : MonoBehaviour {
   }
 
   private IEnumerator ShotEffect() {
-    audioManager.Play("SFX_Player_Shoot");
+    audioManager.PlayAtPoint("SFX_Player_Shoot", transform.position);
 
     laserLine.enabled = true;
     yield return shotDuration;
