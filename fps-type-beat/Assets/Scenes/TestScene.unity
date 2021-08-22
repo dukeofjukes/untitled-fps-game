@@ -2117,6 +2117,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!23 &987293006 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7129953769275049503, guid: 5656dd9a824a80d4589f6e0acc188b62,
+    type: 3}
+  m_PrefabInstance: {fileID: 956091453515049973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1141189386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,6 +2295,12 @@ Transform:
   m_Father: {fileID: 1957387623}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1634965378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5462590487694393622, guid: 9d1836ee5946f264c99bfa9d6aa29052,
+    type: 3}
+  m_PrefabInstance: {fileID: 417657758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1805118171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2445,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7129953769674406669, guid: 5656dd9a824a80d4589f6e0acc188b62,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1634965378}
+    - target: {fileID: 7129953769674406671, guid: 5656dd9a824a80d4589f6e0acc188b62,
+        type: 3}
+      propertyPath: render
+      value: 
+      objectReference: {fileID: 987293006}
+    - target: {fileID: 7129953769674406671, guid: 5656dd9a824a80d4589f6e0acc188b62,
+        type: 3}
+      propertyPath: modelRenderer
+      value: 
+      objectReference: {fileID: 987293006}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5656dd9a824a80d4589f6e0acc188b62, type: 3}
 --- !u!1001 &7238580294727109659
