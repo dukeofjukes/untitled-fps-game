@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
       return null;
     }
 
-    // FIXME: still not working
+    /* This code should work while retaining audio source parameters, but doesn't. I suspect "aSource = s.source" assignment to be the culprit.
     GameObject tempGO = new GameObject("TempAudio");
     tempGO.transform.position = position;
     AudioSource aSource = tempGO.AddComponent<AudioSource>();
@@ -69,5 +69,8 @@ public class AudioManager : MonoBehaviour
     aSource.Play();
     Destroy(tempGO, s.clip.length);
     return aSource;
+    */
+    AudioSource.PlayClipAtPoint(s.source.clip, position, s.source.volume); // works, but doesn't retain other source parameters
+    return s.source;
   }
 }
