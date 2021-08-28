@@ -1832,6 +1832,11 @@ PrefabInstance:
       propertyPath: hudManager
       value: 
       objectReference: {fileID: 1419513069}
+    - target: {fileID: 5462590487694393620, guid: 9d1836ee5946f264c99bfa9d6aa29052,
+        type: 3}
+      propertyPath: rotationPerFrame
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5462590487694393622, guid: 9d1836ee5946f264c99bfa9d6aa29052,
         type: 3}
       propertyPath: m_RootOrder
@@ -1960,7 +1965,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14204
+  m_Name: pb_Mesh14214
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

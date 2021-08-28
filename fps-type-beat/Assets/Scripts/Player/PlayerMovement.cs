@@ -7,8 +7,9 @@ using UnityEngine;
 */
 public class PlayerMovement : CharacterManager {
   public HUDManager hudManager;
+  public float rotationRate = 1f; // in degrees per FixedUpdate call
 
-  void Update() {
+  void FixedUpdate() {
     GetInputMovement();
     ApplyMovement(); // inherited from CharacterManager
   }
@@ -25,16 +26,19 @@ public class PlayerMovement : CharacterManager {
     // FIXME: apply flipping velocity here:
     if (Input.GetButtonDown("Jump") && isGrounded) {
       //velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-      
+
+      // start flipping coroutine, 
       StartCoroutine(flipPlayer());
     }
   }
 
   public IEnumerator flipPlayer() {
-    //TODO: rotate 180 degrees, gravity shouldn't have to switch because its local to the Player GameObject
-    //while (not on surface) {
-      //keep flipping
+    Quaternion originalRotation = transform.rotation;
+    gravityDirection *= -1; // flip the gravity direction in CharacterManager parent class
+    do {
+      transform.Rotate(0f, 0f, rotationRate);
       yield return null;
-    //}
+    } while (transform.rotation.z % 180 != 0);
+    transform.SetPositionAndRotation(transform.position, originalRotation);
   }
 }

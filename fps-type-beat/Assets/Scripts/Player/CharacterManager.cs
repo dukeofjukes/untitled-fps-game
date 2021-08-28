@@ -20,6 +20,8 @@ public class CharacterManager : MonoBehaviour {
   public LayerMask groundMask;
   public bool isGrounded;
 
+  public int gravityDirection = -1; // default negative, pulling down
+
   /*
     Applies character movement to the CharacterController. x, y, z movement should be defined in
     child classes. This funtion should be called in the child's Update() function.
@@ -28,7 +30,7 @@ public class CharacterManager : MonoBehaviour {
     // if character is touching ground, set velocity to a constant:
     isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     if (isGrounded && velocity.y < 0) {
-      velocity.y = -2f;
+      velocity.y = gravityDirection * 2f;
     }
 
     // move player horizontally:
