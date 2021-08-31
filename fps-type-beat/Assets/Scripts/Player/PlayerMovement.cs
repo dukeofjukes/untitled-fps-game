@@ -28,17 +28,27 @@ public class PlayerMovement : CharacterManager {
       //velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
       // start flipping coroutine, 
+      gravityDirection *= -1; // flip the gravity direction in CharacterManager parent class
       StartCoroutine(flipPlayer());
     }
   }
 
   public IEnumerator flipPlayer() {
-    Quaternion originalRotation = transform.rotation;
-    gravityDirection *= -1; // flip the gravity direction in CharacterManager parent class
+    // Quaternion originalRotation = transform.rotation;
+    Vector3 targetAngle = transform.eulerAngles + 180f * Vector3.forward;
+
     do {
-      transform.Rotate(0f, 0f, rotationRate);
+      // transform.Rotate(0f, 0f, rotationRate);
+      // if (Mathf.Abs(transform.eulerAngles.z - targetAngle.z) < 2)
+        // break;
+
+      // transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetAngle, rotationRate * Time.deltaTime);
+      float newZ = Mathf.Lerp(transform.eulerAngles.z, targetAngle.z, rotationRate * Time.deltaTime);
+      transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, newZ);
       yield return null;
-    } while (transform.rotation.z % 180 != 0);
-    transform.SetPositionAndRotation(transform.position, originalRotation);
+    } while (transform.eulerAngles.z != targetAngle.z/*Mathf.Abs(transform.eulerAngles.z - targetAngle.z) < 2f*/);
+
+    //transform.eulerAngles = targetAngle;
+    // transform.SetPositionAndRotation(transform.position, originalRotation);
   }
 }
